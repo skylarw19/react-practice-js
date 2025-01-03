@@ -147,6 +147,39 @@ function App() {
   const [pokemonPerPage, setPokemonPerPage] = useState(10)
 
   useEffect(() => {
+    async function getAPokeAsync() {
+      try {
+        const response = await fetch("https://pokeapi.co/api/v2/pokemon/charmander")
+
+        if (!response.ok) {
+          throw new Error("invalid url")
+        }
+        const data = await response.json()
+        setCelebi(c => c = data)
+      } catch(error) {
+        console.log(error)
+      } finally {
+        console.log('finally happens regardless of trycatch')
+      }
+    }
+
+    fetch("https://pokeapi.co/api/v2/pokemon/charmander123").then((response) => {
+      console.log('inside then')
+      if (!response.ok) {
+        throw new Error('bad url')
+      }
+      return response.json()
+    }).then((data) => {
+      console.log('2nd then', data)
+      setCelebi(data)
+    }).catch((error) => {
+      console.log('inside catch', error)
+    })
+
+    getAPokeAsync()
+  }, [])
+
+  useEffect(() => {
     async function fetchPokemon() {
       const urls = [
         "https://pokeapi.co/api/v2/pokemon/celebi",
