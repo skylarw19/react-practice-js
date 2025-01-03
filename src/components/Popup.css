@@ -1,0 +1,18 @@
+.popup {
+    border: 1px solid red;
+    background-color: white;
+    color: blue;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px;
+    width: 500px;
+    position: fixed;
+}
+
+.exit-button {
+    border: 1px solid blue;
+    align-self: flex-end;
+    align-items:last baseline;
+}

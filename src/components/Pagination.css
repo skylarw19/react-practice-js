@@ -1,0 +1,14 @@
+.pagination {
+    display: flex;
+    border: 1px solid white;
+}
+
+.page-number {
+    border: 1px solid white;
+    padding: 10px;
+    
+}
+
+.page-number:hover {
+    background-color: blue;
+};
